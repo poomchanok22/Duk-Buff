@@ -63,7 +63,7 @@ const GhostJumpScare: React.FC<GhostProps> = ({ userName }) => {
         }}
       >
         <Image
-          src="/ghost.jpg"
+          src="/manggon.jpg"
           width={800}
           height={800}
           alt="ghost"

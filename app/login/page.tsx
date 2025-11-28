@@ -70,13 +70,13 @@ const RegisterForm: React.FC = () => {
             <Input placeholder="ชื่อของคุณ" />
           </Form.Item>
 
-          <Form.Item
+          {/* <Form.Item
             label="อายุ"
             name="age"
             rules={[{ required: true, message: "กรุณากรอกอายุ" }]}
           >
             <Input placeholder="อายุของคุณ" />
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item
             label="สิ่งที่ชอบ"
