@@ -1,10 +1,11 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import React from "react";
 
-export default function ThankYouPage() {
-  const searchParams = useSearchParams();
-  const name = searchParams.get("name");
+interface ThankYouMessageProps {
+  name: string | null;
+}
 
+const ThankYouMessage: React.FC<ThankYouMessageProps> = ({ name }) => {
   return (
     <div
       className="flex-col"
@@ -21,7 +22,11 @@ export default function ThankYouPage() {
       }}
     >
       ขอบคุณสำหรับข้อมูล 😊
-      <span style={{ fontSize: 40, color: "#000" }}>คุณ {name}</span>
+      <span style={{ fontSize: 40, color: "#000" }}>
+        {name ? `คุณ ${name}` : ""}
+      </span>
     </div>
   );
-}
+};
+
+export default ThankYouMessage;

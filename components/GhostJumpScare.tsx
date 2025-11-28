@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import ThankYouMessage from "./Thankyou";
 interface GhostProps {
   userName: string;
 }
@@ -9,7 +9,7 @@ interface GhostProps {
 const GhostJumpScare: React.FC<GhostProps> = ({ userName }) => {
   const ghostRef = useRef<HTMLDivElement | null>(null);
   const screamRef = useRef<HTMLAudioElement | null>(null);
-  const router = useRouter();
+  const [showThankYou, setShowThankYou] = useState(false);
 
   useEffect(() => {
     const ghost = ghostRef.current;
@@ -24,14 +24,18 @@ const GhostJumpScare: React.FC<GhostProps> = ({ userName }) => {
     }, 700);
 
     const redirectTimer = setTimeout(() => {
-      router.push(`/thankyou?name=${encodeURIComponent(userName)}`);
+      setShowThankYou(true); // แทน redirect → แสดง component
     }, 2500);
 
     return () => {
       clearTimeout(timer);
       clearTimeout(redirectTimer);
     };
-  }, [router, userName]);
+  }, [userName]);
+
+  if (showThankYou) {
+    return <ThankYouMessage name={userName} />;
+  }
 
   return (
     <div
