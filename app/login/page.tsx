@@ -24,7 +24,7 @@ const RegisterForm: React.FC = () => {
   };
 
   const onFinishFailed = () => {
-    message.error("กรุณากรอกข้อมูลให้ครบถ้วน");
+    message.error("กรุณากรอกข้อมูลให้ครบถ้วนนะ");
   };
 
   if (showGhost) {
